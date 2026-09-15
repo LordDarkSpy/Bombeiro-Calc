@@ -206,16 +206,34 @@ body {
   font-size: 1.3rem;
 }
 
+.botao-copiar,
 .botao-limpar {
-  margin-top: 16px;
+  margin-top: 12px;
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 8px;
-  background: var(--preto);
-  color: var(--branco);
   cursor: pointer;
   font-size: 0.95rem;
+}
+
+.botao-copiar {
+  background: var(--vermelho);
+  color: var(--branco);
+  transition: background 0.15s ease;
+}
+
+.botao-copiar:hover {
+  background: var(--vermelho-escuro);
+}
+
+.botao-copiar.copiado {
+  background: #2e7d32;
+}
+
+.botao-limpar {
+  background: var(--preto);
+  color: var(--branco);
 }
 
 .botao-limpar:hover {

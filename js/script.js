@@ -2,8 +2,10 @@ const listaItensEl = document.getElementById('lista-itens');
 const resumoListaEl = document.getElementById('resumo-lista');
 const totalValorEl = document.getElementById('total-valor');
 const limparBtn = document.getElementById('limpar');
+const copiarBtn = document.getElementById('copiar');
 
 let moeda = '$';
+let totalAtual = 0;
 const quantidades = {};
 
 function formatarValor(valor) {
@@ -29,7 +31,24 @@ function atualizarResumo(itens) {
     });
   }
 
-  totalValorEl.textContent = formatarValor(calcularTotal(itens));
+  totalAtual = calcularTotal(itens);
+  totalValorEl.textContent = formatarValor(totalAtual);
+}
+
+function copiarParaAreaDeTransferencia(texto) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(texto);
+  }
+
+  const textarea = document.createElement('textarea');
+  textarea.value = texto;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
+  return Promise.resolve();
 }
 
 function atualizarLinha(item) {
@@ -91,6 +110,18 @@ function renderizarItens(itens) {
       atualizarLinha(item);
     });
     atualizarResumo(itens);
+  });
+
+  copiarBtn.addEventListener('click', () => {
+    copiarParaAreaDeTransferencia(formatarValor(totalAtual)).then(() => {
+      const textoOriginal = copiarBtn.textContent;
+      copiarBtn.textContent = '✅ Copiado!';
+      copiarBtn.classList.add('copiado');
+      setTimeout(() => {
+        copiarBtn.textContent = textoOriginal;
+        copiarBtn.classList.remove('copiado');
+      }, 1500);
+    });
   });
 
   atualizarResumo(itens);
