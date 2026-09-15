@@ -113,7 +113,7 @@ function renderizarItens(itens) {
   });
 
   copiarBtn.addEventListener('click', () => {
-    copiarParaAreaDeTransferencia(formatarValor(totalAtual)).then(() => {
+    copiarParaAreaDeTransferencia(String(Math.round(totalAtual))).then(() => {
       const textoOriginal = copiarBtn.textContent;
       copiarBtn.textContent = '✅ Copiado!';
       copiarBtn.classList.add('copiado');
