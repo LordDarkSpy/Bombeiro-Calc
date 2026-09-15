@@ -5,19 +5,19 @@
       "id": "kit-medico",
       "nome": "Kit Médico",
       "icone": "🩹",
-      "preco": 250
+      "preco": 1170
     },
     {
       "id": "atadura",
       "nome": "Atadura",
       "icone": "🧵",
-      "preco": 100
+      "preco": 530
     },
     {
       "id": "relogio",
       "nome": "Relógio",
       "icone": "⌚",
-      "preco": 500
+      "preco": 7500
     }
   ]
 }
