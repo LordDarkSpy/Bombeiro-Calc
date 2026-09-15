@@ -26,18 +26,10 @@ Edite `data/precos.json`. Cada item tem `id`, `nome`, `icone` (emoji) e `preco`.
 
 ## Publicar no GitHub Pages
 
-1. Crie um repositório no GitHub e envie estes arquivos:
-   ```
-   git init
-   git add .
-   git commit -m "Calculadora de venda - Bombeiros Oasis RP"
-   git branch -M main
-   git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-   git push -u origin main
-   ```
+1. Envie o código para o repositório (`git push`).
 2. No GitHub, vá em **Settings → Pages**.
 3. Em "Source", selecione a branch `main` e a pasta `/root`.
-4. Salve. O site ficará disponível em `https://SEU_USUARIO.github.io/SEU_REPOSITORIO/`.
+4. Salve. O site ficará disponível em `https://lorddarkspy.github.io/Bombeiro-Calc/`.
 
 ## Testar localmente
 
