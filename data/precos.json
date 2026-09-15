@@ -1,0 +1,23 @@
+{
+  "moeda": "$",
+  "itens": [
+    {
+      "id": "kit-medico",
+      "nome": "Kit Médico",
+      "icone": "🩹",
+      "preco": 250
+    },
+    {
+      "id": "atadura",
+      "nome": "Atadura",
+      "icone": "🧵",
+      "preco": 100
+    },
+    {
+      "id": "relogio",
+      "nome": "Relógio",
+      "icone": "⌚",
+      "preco": 500
+    }
+  ]
+}
