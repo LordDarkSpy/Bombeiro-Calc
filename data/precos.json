@@ -20,6 +20,7 @@
       "id": "bandagem",
       "nome": "Bandagem",
       "icone": "🧵",
+      "imagem": "img/bandagem.jpg",
       "preco": 410,
       "descricao": "Oferece uma pequena cura"
     },
@@ -35,6 +36,7 @@
       "id": "antialergico",
       "nome": "Antialérgico",
       "icone": "💊",
+      "imagem": "img/antialergico.png",
       "preco": 585,
       "descricao": "Tratamento para alergia"
     },
@@ -42,6 +44,7 @@
       "id": "sinkalmy",
       "nome": "Sinkalmy",
       "icone": "🧴",
+      "imagem": "img/sinkalmy.png",
       "preco": 470,
       "descricao": "Remédio para estresse"
     },
