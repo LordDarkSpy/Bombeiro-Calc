@@ -71,6 +71,7 @@ function renderizarItens(itens) {
       <span class="item-icone">${item.icone}</span>
       <div class="item-info">
         <p class="item-nome">${item.nome}</p>
+        ${item.descricao ? `<p class="item-descricao">${item.descricao}</p>` : ''}
         <p class="item-preco">${formatarValor(item.preco)} / unidade</p>
       </div>
       <div class="item-qtd">

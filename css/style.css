@@ -133,6 +133,13 @@ body {
   margin: 0;
 }
 
+.item-descricao {
+  margin: 2px 0 0;
+  color: #888;
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
 .item-preco {
   margin: 2px 0 0;
   color: #666;

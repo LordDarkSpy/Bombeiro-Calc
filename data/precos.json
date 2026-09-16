@@ -2,22 +2,53 @@
   "moeda": "$",
   "itens": [
     {
+      "id": "relogio",
+      "nome": "Relógio",
+      "icone": "⌚",
+      "preco": 7500,
+      "descricao": "Efetua chamados aos bombeiros quando desmaiado"
+    },
+    {
       "id": "kit-medico",
       "nome": "Kit Médico",
       "icone": "🩹",
-      "preco": 1170
+      "preco": 1170,
+      "descricao": "Cura"
+    },
+    {
+      "id": "bandagem",
+      "nome": "Bandagem",
+      "icone": "🧵",
+      "preco": 410,
+      "descricao": "Oferece uma pequena cura"
     },
     {
       "id": "atadura",
       "nome": "Atadura",
-      "icone": "🧵",
-      "preco": 530
+      "icone": "🩸",
+      "preco": 530,
+      "descricao": "Tira sangramento"
     },
     {
-      "id": "relogio",
-      "nome": "Relógio",
-      "icone": "⌚",
-      "preco": 7500
+      "id": "antialergico",
+      "nome": "Antialérgico",
+      "icone": "💊",
+      "preco": 585,
+      "descricao": "Tratamento para alergia"
+    },
+    {
+      "id": "sinkalmy",
+      "nome": "Sinkalmy",
+      "icone": "🌿",
+      "preco": 470,
+      "descricao": "Remédio para estresse"
+    },
+    {
+      "id": "retmoneury",
+      "nome": "Retmoneury",
+      "icone": "⚕️",
+      "preco": 530,
+      "descricao": "Remédio para estresse mais eficiente"
     }
   ]
 }
