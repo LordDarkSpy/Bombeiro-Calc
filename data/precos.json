@@ -39,14 +39,14 @@
     {
       "id": "sinkalmy",
       "nome": "Sinkalmy",
-      "icone": "🌿",
+      "icone": "🧴",
       "preco": 470,
       "descricao": "Remédio para estresse"
     },
     {
       "id": "retmoneury",
       "nome": "Retmoneury",
-      "icone": "⚕️",
+      "icone": "🧪",
       "preco": 530,
       "descricao": "Remédio para estresse mais eficiente"
     }
