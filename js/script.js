@@ -67,8 +67,12 @@ function renderizarItens(itens) {
     const linha = document.createElement('div');
     linha.className = 'item-linha';
     linha.id = `linha-${item.id}`;
+    const iconeHtml = item.imagem
+      ? `<img class="item-icone-img" src="${item.imagem}" alt="${item.nome}">`
+      : `<span class="item-icone">${item.icone}</span>`;
+
     linha.innerHTML = `
-      <span class="item-icone">${item.icone}</span>
+      ${iconeHtml}
       <div class="item-info">
         <p class="item-nome">${item.nome}</p>
         ${item.descricao ? `<p class="item-descricao">${item.descricao}</p>` : ''}

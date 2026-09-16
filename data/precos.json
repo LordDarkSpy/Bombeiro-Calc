@@ -11,7 +11,8 @@
     {
       "id": "kit-medico",
       "nome": "Kit Médico",
-      "icone": "🩹",
+      "icone": "🩺",
+      "imagem": "img/kit-medico.jpg",
       "preco": 1170,
       "descricao": "Cura"
     },
@@ -25,7 +26,8 @@
     {
       "id": "atadura",
       "nome": "Atadura",
-      "icone": "🩸",
+      "icone": "🩹",
+      "imagem": "img/atadura.jpg",
       "preco": 530,
       "descricao": "Tira sangramento"
     },
