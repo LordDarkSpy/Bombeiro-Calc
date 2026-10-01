@@ -132,6 +132,19 @@ function renderizarItens(itens) {
   atualizarResumo(itens);
 }
 
+const copiarLinkBtn = document.getElementById('copiar-link');
+copiarLinkBtn.addEventListener('click', () => {
+  copiarParaAreaDeTransferencia(copiarLinkBtn.dataset.link).then(() => {
+    const acaoEl = copiarLinkBtn.querySelector('.link-acao');
+    acaoEl.textContent = '✅ Copiado!';
+    copiarLinkBtn.classList.add('copiado');
+    setTimeout(() => {
+      acaoEl.textContent = '📋 Copiar';
+      copiarLinkBtn.classList.remove('copiado');
+    }, 1500);
+  });
+});
+
 fetch('data/precos.json')
   .then((resposta) => {
     if (!resposta.ok) throw new Error('Falha ao carregar arquivo de preços');
