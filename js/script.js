@@ -35,20 +35,36 @@ function atualizarResumo(itens) {
   totalValorEl.textContent = formatarValor(totalAtual);
 }
 
-function copiarParaAreaDeTransferencia(texto) {
-  if (navigator.clipboard && window.isSecureContext) {
-    return navigator.clipboard.writeText(texto);
-  }
-
+function copiarComExecCommand(texto) {
   const textarea = document.createElement('textarea');
   textarea.value = texto;
+  textarea.setAttribute('readonly', '');
   textarea.style.position = 'fixed';
+  textarea.style.top = '0';
+  textarea.style.left = '0';
   textarea.style.opacity = '0';
   document.body.appendChild(textarea);
+  textarea.focus();
   textarea.select();
-  document.execCommand('copy');
+  textarea.setSelectionRange(0, texto.length);
+  let ok = false;
+  try {
+    ok = document.execCommand('copy');
+  } catch (e) {
+    ok = false;
+  }
   document.body.removeChild(textarea);
-  return Promise.resolve();
+  return ok;
+}
+
+function copiarParaAreaDeTransferencia(texto) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(texto).catch(() => {
+      if (!copiarComExecCommand(texto)) throw new Error('Falha ao copiar');
+    });
+  }
+
+  return copiarComExecCommand(texto) ? Promise.resolve() : Promise.reject(new Error('Falha ao copiar'));
 }
 
 function atualizarLinha(item) {
@@ -133,16 +149,28 @@ function renderizarItens(itens) {
 }
 
 const copiarLinkBtn = document.getElementById('copiar-link');
+const linkCampo = document.getElementById('link-campo');
+const textoCopiarLink = copiarLinkBtn.textContent;
+
+linkCampo.addEventListener('focus', () => linkCampo.select());
+
 copiarLinkBtn.addEventListener('click', () => {
-  copiarParaAreaDeTransferencia(copiarLinkBtn.dataset.link).then(() => {
-    const acaoEl = copiarLinkBtn.querySelector('.link-acao');
-    acaoEl.textContent = '✅ Copiado!';
-    copiarLinkBtn.classList.add('copiado');
-    setTimeout(() => {
-      acaoEl.textContent = '📋 Copiar';
-      copiarLinkBtn.classList.remove('copiado');
-    }, 1500);
-  });
+  copiarParaAreaDeTransferencia(linkCampo.value)
+    .then(() => {
+      copiarLinkBtn.textContent = '✅ Link copiado!';
+      copiarLinkBtn.classList.add('copiado');
+    })
+    .catch(() => {
+      linkCampo.focus();
+      linkCampo.select();
+      copiarLinkBtn.textContent = 'Selecionado — aperte Ctrl+C';
+    })
+    .finally(() => {
+      setTimeout(() => {
+        copiarLinkBtn.textContent = textoCopiarLink;
+        copiarLinkBtn.classList.remove('copiado');
+      }, 2000);
+    });
 });
 
 fetch('data/precos.json')

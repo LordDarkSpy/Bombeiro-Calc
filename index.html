@@ -25,6 +25,7 @@
     <p class="carregando">Carregando itens...</p>
   </section>
 
+  <div class="coluna-lateral">
   <aside class="cartao resumo">
     <h2>Resumo do Pedido</h2>
     <ul id="resumo-lista" class="resumo-lista">
@@ -36,15 +37,17 @@
     </div>
     <button id="copiar" type="button" class="botao-copiar">📋 Copiar valor total</button>
     <button id="limpar" type="button" class="botao-limpar">Limpar tudo</button>
-
-    <div class="link-imagem">
-      <h3>Link da imagem</h3>
-      <button id="copiar-link" type="button" class="link-caixa" data-link="https://imgur.com/a/JcfPdxs" title="Clique para copiar">
-        <span class="link-texto">https://imgur.com/a/JcfPdxs</span>
-        <span class="link-acao">📋 Copiar</span>
-      </button>
-    </div>
   </aside>
+
+  <section class="cartao link-imagem">
+    <h2>Imagem para enviar</h2>
+    <a href="https://imgur.com/a/JcfPdxs" target="_blank" rel="noopener">
+      <img class="link-preview" src="https://i.imgur.com/3sUWuGA.jpeg" alt="Imagem do Imgur para enviar no jogo">
+    </a>
+    <input id="link-campo" class="link-campo" type="text" readonly value="https://imgur.com/a/JcfPdxs" aria-label="Link da imagem">
+    <button id="copiar-link" type="button" class="botao-copiar">📋 Copiar link da imagem</button>
+  </section>
+  </div>
 
 </main>
 
