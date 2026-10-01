@@ -95,9 +95,13 @@ function renderizarItens(itens) {
         <p class="item-preco">${formatarValor(item.preco)} / unidade</p>
       </div>
       <div class="item-qtd">
-        <button type="button" data-acao="menos" aria-label="Diminuir quantidade">-</button>
+        <button type="button" class="passo-grande" data-passo="-10" aria-label="Diminuir 10">-10</button>
+        <button type="button" class="passo-grande" data-passo="-5" aria-label="Diminuir 5">-5</button>
+        <button type="button" data-passo="-1" aria-label="Diminuir quantidade">-</button>
         <input type="number" min="0" value="0" inputmode="numeric">
-        <button type="button" data-acao="mais" aria-label="Aumentar quantidade">+</button>
+        <button type="button" data-passo="1" aria-label="Aumentar quantidade">+</button>
+        <button type="button" class="passo-grande" data-passo="5" aria-label="Aumentar 5">+5</button>
+        <button type="button" class="passo-grande" data-passo="10" aria-label="Aumentar 10">+10</button>
       </div>
       <div class="item-subtotal">${formatarValor(0)}</div>
     `;
@@ -105,16 +109,13 @@ function renderizarItens(itens) {
 
     const input = linha.querySelector('.item-qtd input');
 
-    linha.querySelector('[data-acao="menos"]').addEventListener('click', () => {
-      quantidades[item.id] = Math.max(0, (quantidades[item.id] || 0) - 1);
-      atualizarLinha(item);
-      atualizarResumo(itens);
-    });
-
-    linha.querySelector('[data-acao="mais"]').addEventListener('click', () => {
-      quantidades[item.id] = (quantidades[item.id] || 0) + 1;
-      atualizarLinha(item);
-      atualizarResumo(itens);
+    linha.querySelectorAll('[data-passo]').forEach((botao) => {
+      botao.addEventListener('click', () => {
+        const passo = parseInt(botao.dataset.passo, 10);
+        quantidades[item.id] = Math.max(0, (quantidades[item.id] || 0) + passo);
+        atualizarLinha(item);
+        atualizarResumo(itens);
+      });
     });
 
     input.addEventListener('input', () => {
